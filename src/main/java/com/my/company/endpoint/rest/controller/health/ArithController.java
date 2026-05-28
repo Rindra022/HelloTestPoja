@@ -10,38 +10,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/arith")
 public class ArithController {
 
-  private  ArithService arithService;
+  private ArithService arithService;
 
   @GetMapping("/add")
-  public Double add(
-          @RequestParam Double a,
-          @RequestParam Double b
-  ) {
+  public Double add(@RequestParam Double a, @RequestParam Double b) {
 
-    return arithService.add(a,b);
+    return arithService.add(a, b);
   }
 
   @GetMapping("/substract")
-  public Double substract(
-          @RequestParam Double a,
-          @RequestParam Double b
-  ){
-    return arithService.subtract(a,b);
-  }
-    @GetMapping("/multiply")
-  public Double multiply(
-          @RequestParam Double a,
-          @RequestParam Double b
-  ){
-    return arithService.multiply(a,b);
-  }
-    @GetMapping("/division")
-  public Double division(
-          @RequestParam Double a,
-          @RequestParam Double b
-  ){
-    return arithService.division(a,b);
+  public Double substract(@RequestParam Double a, @RequestParam Double b) {
+    return arithService.subtract(a, b);
   }
 
+  @GetMapping("/multiply")
+  public Double multiply(@RequestParam Double a, @RequestParam Double b) {
+    return arithService.multiply(a, b);
+  }
 
+  @GetMapping("/division")
+  public Double division(@RequestParam Double a, @RequestParam Double b) {
+    return arithService.division(a, b);
+  }
 }
