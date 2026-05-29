@@ -3,6 +3,7 @@ package com.my.company.conf;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.my.company.exception.BadRequestException;
 import com.my.company.service.ArithService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class ArithServiceTest {
     Double b = -6.;
 
     assertThatThrownBy(() -> arithService.subtract(a, b))
-        .isInstanceOf(IllegalArgumentException.class)
+        .isInstanceOf(BadRequestException.class)
         .hasMessageContaining("Number can't be negative");
   }
 
@@ -80,7 +81,7 @@ public class ArithServiceTest {
     Double b = -2.;
 
     assertThatThrownBy(() -> arithService.division(a, b))
-        .isInstanceOf(IllegalArgumentException.class)
+        .isInstanceOf(BadRequestException.class)
         .hasMessageContaining("Number can't be negative");
   }
 }
